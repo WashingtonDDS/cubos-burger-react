@@ -1,6 +1,6 @@
 import { ChangeEvent } from "react";
 
-export interface IProductInCart {
+export type TProductInCart = {
   id: string;
   title: string;
   description: string;
@@ -8,13 +8,13 @@ export interface IProductInCart {
   category: string;
   idProduct: string;
   quantity: number;
-}
+};
 
-export interface ProductInCartProps {
-  item: IProductInCart;
-  deleteProduct: (productInCart: IProductInCart) => void;
+export type TProductInCartProps = {
+  item: TProductInCart;
+  deleteProduct: (productInCart: TProductInCart) => void;
   updateQuantityProductInCart: (
     event: ChangeEvent<HTMLSelectElement>,
-    productInCart: IProductInCart
+    productInCart: TProductInCart
   ) => void;
-}
+};
