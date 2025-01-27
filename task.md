@@ -2,7 +2,7 @@
 - [] Configurar header links
 - [x] Configurar axios
 - [] Home
-  - [] Buscar os produtos
+  - [x] Buscar os produtos
   - [] mostrar os produtos em tela
   - [] Formatar o preço
   - [] Add Itens no carrinho
