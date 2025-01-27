@@ -1,6 +1,6 @@
-- [] Configurar rotas
+- [x] Configurar rotas
 - [] Configurar header links
-- [] Configurar aios
+- [x] Configurar axios
 - [] Home
   - [] Buscar os produtos
   - [] mostrar os produtos em tela
