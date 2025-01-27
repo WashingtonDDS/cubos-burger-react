@@ -1,0 +1,15 @@
+- [] Configurar rotas
+- [] Configurar header links
+- [] Configurar aios
+- [] Home
+  - [] Buscar os produtos
+  - [] mostrar os produtos em tela
+  - [] Formatar o preço
+  - [] Add Itens no carrinho
+    - [] verificar se o item está no carrinho PUT | POST
+    - [] PUT
+    - [] POST
+- [] Carrinho
+  - [] Listar os produtos no carrinho
+  - [] ecluir produto
+  - [] alterar quantidade do produto
