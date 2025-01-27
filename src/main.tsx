@@ -1,21 +1,12 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
+import React from "react";
+import ReactDOM from "react-dom/client";
 
-import './css/global.css'
-// import { Cart } from './pages/cart'
-import { Home } from './pages/home'
-import { Header } from './components/Header'
-import { Footer } from './components/Footer'
+import "./css/global.css";
+import { RouterProvider } from "react-router-dom";
+import { routes } from "./routes";
 
-
-
-ReactDOM.createRoot(document.getElementById('root')!).render(
+ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <>
-      <Header />
-      <Home />
-      {/* <Cart /> */}
-      <Footer />
-    </>
+    <RouterProvider router={routes} />
   </React.StrictMode>
-)
+);
