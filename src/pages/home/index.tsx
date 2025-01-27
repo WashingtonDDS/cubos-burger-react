@@ -1,12 +1,13 @@
-
-import { Product } from '../../components/Product';
-import styles from './home.module.css';
+import { useLoaderData } from "react-router-dom";
+import { Product } from "../../components/Product";
+import styles from "./home.module.css";
 
 export function Home(): JSX.Element {
-
+  const products = useLoaderData();
+  console.log(products);
 
   return (
-    <main className='main__container container'>
+    <main className="main__container container">
       <section className={styles.products}>
         <h1 className={styles.products__title}>Hamburguer</h1>
         <div className={styles.products__body}>
@@ -25,5 +26,5 @@ export function Home(): JSX.Element {
         </div>
       </section>
     </main>
-  )
+  );
 }

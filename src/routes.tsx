@@ -8,6 +8,7 @@ import { Cart } from "./pages/cart";
 import { ReactNode } from "react";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
+import { makeRequest } from "./utils/makeRequest";
 
 const CreatePage = ({ children }: { children: ReactNode }) => {
   return (
@@ -23,6 +24,7 @@ export const routes = createBrowserRouter(
     <Route>
       <Route
         path="/"
+        loader={() => makeRequest("/products", "GET")}
         element={
           <CreatePage>
             <Home />
