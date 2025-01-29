@@ -15,7 +15,7 @@ export function Home(): JSX.Element {
         <h1 className={styles.products__title}>Hamburguer</h1>
         <div className={styles.products__body}>
           {hamburger.map((item) => (
-            <Product key={item.id} />
+            <Product item={item} key={item.id} />
           ))}
         </div>
       </section>
@@ -24,7 +24,7 @@ export function Home(): JSX.Element {
         <h1 className={styles.products__title}>Bebidas</h1>
         <div className={styles.products__body}>
           {drinks.map((item) => (
-            <Product key={item.id} />
+            <Product item={item} key={item.id} />
           ))}
         </div>
       </section>
