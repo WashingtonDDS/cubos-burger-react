@@ -5,10 +5,10 @@
   - [x] Buscar os produtos
   - [x] mostrar os produtos em tela
   - [x] Formatar o preço
-  - [] Add Itens no carrinho
+  - [x] Add Itens no carrinho
     - [x] verificar se o item está no carrinho PUT | POST
-    - [] PUT
-    - [] POST
+    - [x] PUT
+    - [x] POST
 - [] Carrinho
   - [] Listar os produtos no carrinho
   - [] ecluir produto

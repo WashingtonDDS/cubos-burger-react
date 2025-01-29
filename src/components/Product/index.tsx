@@ -7,7 +7,9 @@ import { makeRequest } from "../../utils/makeRequest";
 import { TProductInCart } from "../../interfaces/productCart.interface";
 
 export function Product({ item }: Readonly<TProductProps>): JSX.Element {
-  const verifyProductInCart = async (product: TProduct): Promise<boolean> => {
+  const verifyProductInCart = async (
+    product: TProduct
+  ): Promise<TProductInCart[]> => {
     const productInCart = (await makeRequest(
       "/cart",
       "GET"
@@ -15,7 +17,28 @@ export function Product({ item }: Readonly<TProductProps>): JSX.Element {
     const existProductInCart = productInCart.filter(
       (item) => item.idProduct === product.id
     );
-    return existProductInCart.length > 0;
+    return existProductInCart;
+  };
+
+  const addProductInCart = async (product: TProduct) => {
+    const productsInCart = await verifyProductInCart(product);
+    if (productsInCart.length) {
+      //PUT
+      await makeRequest(`/cart${productsInCart[0].id}`, "PUT", {
+        ...productsInCart[0],
+        quantity: productsInCart[0].quantity + 1,
+      });
+      alert("Produto adicionado com sucesso");
+      return;
+    }
+    //POST
+    await makeRequest("/cart", "POST", {
+      ...product,
+      id: crypto.randomUUID(),
+      idProduct: product.id,
+      quantity: 1,
+    });
+    alert("Produto adicionado com sucesso");
   };
   const { title, description, price, category } = item;
   return (
@@ -38,7 +61,7 @@ export function Product({ item }: Readonly<TProductProps>): JSX.Element {
       <p className={styles.product__description}>{description}</p>
       <h2 className={styles.product__price}>{formatPrice(price)}</h2>
       <button
-        onClick={() => verifyProductInCart(item)}
+        onClick={() => addProductInCart(item)}
         className={`${styles.product__button} button--primary button`}
       >
         add ao carrinho
