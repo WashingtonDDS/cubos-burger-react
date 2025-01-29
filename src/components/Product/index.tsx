@@ -1,8 +1,8 @@
 import hamburgerImage from "../../assets/hamburger.png";
 import drinksImage from "../../assets/coca-cola.png";
-
 import { TProductProps } from "../../interfaces/product.interface";
 import styles from "./product.module.css";
+import { formatPrice } from "../../utils/formatPrice";
 
 export function Product({ item }: Readonly<TProductProps>): JSX.Element {
   const { title, description, price, category } = item;
@@ -24,7 +24,7 @@ export function Product({ item }: Readonly<TProductProps>): JSX.Element {
 
       <h3 className={styles.product__title}>{title}</h3>
       <p className={styles.product__description}>{description}</p>
-      <h2 className={styles.product__price}>{price}</h2>
+      <h2 className={styles.product__price}>{formatPrice(price)}</h2>
       <button className={`${styles.product__button} button--primary button`}>
         add ao carrinho
       </button>

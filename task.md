@@ -3,7 +3,7 @@
 - [x] Configurar axios
 - [] Home
   - [x] Buscar os produtos
-  - [] mostrar os produtos em tela
+  - [x] mostrar os produtos em tela
   - [] Formatar o preço
   - [] Add Itens no carrinho
     - [] verificar se o item está no carrinho PUT | POST
