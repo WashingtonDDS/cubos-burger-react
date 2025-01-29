@@ -1,5 +1,5 @@
 - [x] Configurar rotas
-- [] Configurar header links
+- [x] Configurar header links
 - [x] Configurar axios
 - [] Home
   - [x] Buscar os produtos

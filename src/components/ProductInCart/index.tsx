@@ -1,31 +1,37 @@
-import styles from './productInCart.module.css';
-import hamburgerImage from '../../assets/hamburger.png';
+import styles from "./productInCart.module.css";
+import hamburgerImage from "../../assets/hamburger.png";
+import drinksImage from "../../assets/coca-cola.png";
+import { TProductInCartProps } from "../../interfaces/productCart.interface";
+import { formatPrice } from "../../utils/formatPrice";
 
-export function ProductInCart(): JSX.Element {
-
+export function ProductInCart({
+  item,
+}: Readonly<TProductInCartProps>): JSX.Element {
+  const { price, quantity, title, category } = item;
   return (
     <div className={styles.productInCart}>
       <div className={styles.productInCart__data}>
-     
+        {category !== "bebidas" ? (
           <img
             src={hamburgerImage}
             alt="hamburguer"
-            className={styles.productInCart__image} />
-
+            className={styles.productInCart__image}
+          />
+        ) : (
+          <img
+            src={drinksImage}
+            alt="bebidas"
+            className={styles.productInCart__image}
+          />
+        )}
 
         <div className={styles.productInCart__info}>
+          <h3 className={styles.productInCart__title}>{title}</h3>
 
-          <h3 className={styles.productInCart__title}>
-            Hamburguer 2 queijos
-          </h3>
-
-          <h2 className={styles.productInCart__price}>
-            R$ 36,00
-          </h2>
+          <h2 className={styles.productInCart__price}>{formatPrice(price)}</h2>
         </div>
       </div>
-      <select        
-        className={styles.productInCart__input}>
+      <select defaultValue={quantity} className={styles.productInCart__input}>
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -37,10 +43,11 @@ export function ProductInCart(): JSX.Element {
         <option value="9">9</option>
         <option value="10">10</option>
       </select>
-      <button       
-        className={`${styles.productInCart__button} button--primary button`}>
+      <button
+        className={`${styles.productInCart__button} button--primary button`}
+      >
         excluir
       </button>
     </div>
-  )
+  );
 }

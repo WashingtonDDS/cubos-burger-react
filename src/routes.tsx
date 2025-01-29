@@ -33,6 +33,7 @@ export const routes = createBrowserRouter(
       />
       <Route
         path="/cart"
+        loader={() => makeRequest("/cart", "GET")}
         element={
           <CreatePage>
             <Cart />
