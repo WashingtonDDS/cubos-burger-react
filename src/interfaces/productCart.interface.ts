@@ -1,4 +1,4 @@
-import { ChangeEvent } from "react";
+// import { ChangeEvent } from "react";
 
 export type TProductInCart = {
   id: string;
@@ -12,9 +12,9 @@ export type TProductInCart = {
 
 export type TProductInCartProps = {
   item: TProductInCart;
-  deleteProduct: (productInCart: TProductInCart) => void;
-  updateQuantityProductInCart: (
-    event: ChangeEvent<HTMLSelectElement>,
-    productInCart: TProductInCart
-  ) => void;
+  // deleteProduct: (productInCart: TProductInCart) => void;
+  // updateQuantityProductInCart: (
+  //   event: ChangeEvent<HTMLSelectElement>,
+  //   productInCart: TProductInCart
+  // ) => void;
 };

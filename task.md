@@ -10,6 +10,6 @@
     - [x] PUT
     - [x] POST
 - [] Carrinho
-  - [] Listar os produtos no carrinho
+  - [x] Listar os produtos no carrinho
   - [] ecluir produto
   - [] alterar quantidade do produto
