@@ -11,5 +11,5 @@
     - [x] POST
 - [] Carrinho
   - [x] Listar os produtos no carrinho
-  - [] ecluir produto
+  - [x] exluir produto
   - [] alterar quantidade do produto

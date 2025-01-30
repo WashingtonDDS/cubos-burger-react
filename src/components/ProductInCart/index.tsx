@@ -6,8 +6,10 @@ import { formatPrice } from "../../utils/formatPrice";
 
 export function ProductInCart({
   item,
+  deleteProduct,
 }: Readonly<TProductInCartProps>): JSX.Element {
   const { price, quantity, title, category } = item;
+
   return (
     <div className={styles.productInCart}>
       <div className={styles.productInCart__data}>
@@ -44,6 +46,7 @@ export function ProductInCart({
         <option value="10">10</option>
       </select>
       <button
+        onClick={() => deleteProduct(item)}
         className={`${styles.productInCart__button} button--primary button`}
       >
         excluir
