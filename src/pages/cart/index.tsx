@@ -2,7 +2,7 @@ import styles from "./cart.module.css";
 import { ProductInCart } from "../../components/ProductInCart";
 import { useLoaderData } from "react-router-dom";
 import { TProductInCart } from "../../interfaces/productCart.interface";
-import { useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { formatPrice } from "../../utils/formatPrice";
 import { makeRequest } from "../../utils/makeRequest";
 
@@ -32,6 +32,27 @@ export function Cart(): JSX.Element {
     );
     setProductInCart(newProductsInCart);
   };
+
+  const updateQuantityProductInCart = async (
+    event: ChangeEvent<HTMLSelectElement>,
+    productInCart: TProductInCart
+  ) => {
+    const valueQuantity = event.target.value;
+
+    await makeRequest(`/cart${productInCart.id}`, "PUT", {
+      ...productInCart,
+      quantity: Number(valueQuantity),
+    });
+
+    const newProductsInCart = productsInCart.filter((item) => {
+      if (item.id === productInCart.id) {
+        item.quantity = Number(valueQuantity);
+      }
+      return item;
+    });
+
+    setProductInCart(newProductsInCart);
+  };
   useEffect(() => calcTotal(), []);
   return (
     <main className="main__container container">
@@ -43,6 +64,7 @@ export function Cart(): JSX.Element {
               key={item.id}
               item={item}
               deleteProduct={deleteProduct}
+              updateQuantityProductInCart={updateQuantityProductInCart}
             />
           ))}
         </div>

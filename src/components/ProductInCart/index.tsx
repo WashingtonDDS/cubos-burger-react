@@ -7,6 +7,7 @@ import { formatPrice } from "../../utils/formatPrice";
 export function ProductInCart({
   item,
   deleteProduct,
+  updateQuantityProductInCart,
 }: Readonly<TProductInCartProps>): JSX.Element {
   const { price, quantity, title, category } = item;
 
@@ -33,7 +34,11 @@ export function ProductInCart({
           <h2 className={styles.productInCart__price}>{formatPrice(price)}</h2>
         </div>
       </div>
-      <select defaultValue={quantity} className={styles.productInCart__input}>
+      <select
+        defaultValue={quantity}
+        onChange={(event) => updateQuantityProductInCart(event, item)}
+        className={styles.productInCart__input}
+      >
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
