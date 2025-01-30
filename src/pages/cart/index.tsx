@@ -32,6 +32,9 @@ export function Cart(): JSX.Element {
     );
     setProductInCart(newProductsInCart);
   };
+  useEffect(() => {
+    calcTotal();
+  }, [productsInCart]);
 
   const updateQuantityProductInCart = async (
     event: ChangeEvent<HTMLSelectElement>,
@@ -39,7 +42,7 @@ export function Cart(): JSX.Element {
   ) => {
     const valueQuantity = event.target.value;
 
-    await makeRequest(`/cart${productInCart.id}`, "PUT", {
+    await makeRequest(`/cart/${productInCart.id}`, "PUT", {
       ...productInCart,
       quantity: Number(valueQuantity),
     });
@@ -52,8 +55,9 @@ export function Cart(): JSX.Element {
     });
 
     setProductInCart(newProductsInCart);
+    calcTotal();
   };
-  useEffect(() => calcTotal(), []);
+
   return (
     <main className="main__container container">
       <section className={styles.products}>

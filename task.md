@@ -9,7 +9,7 @@
     - [x] verificar se o item está no carrinho PUT | POST
     - [x] PUT
     - [x] POST
-- [] Carrinho
+- [x] Carrinho
   - [x] Listar os produtos no carrinho
   - [x] exluir produto
-  - [] alterar quantidade do produto
+  - [x] alterar quantidade do produto
